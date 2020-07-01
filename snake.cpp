@@ -41,8 +41,8 @@ int main()
     char t;
 
     while (1){
-        if (kbhit()){
-            t = getch();
+        if (_kbhit()){
+            t = _getch();
             if (t=='a') Huong = 2;
             if (t=='w') Huong = 3;
             if (t=='d') Huong = 0;
