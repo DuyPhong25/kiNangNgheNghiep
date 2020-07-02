@@ -528,7 +528,7 @@ void menu() //ham tao menu dieu kien, chon toc do, huong dan cach choi
 		{
 			chondokho = _getch();
 			if (chondokho < 49 || chondokho > 51)
-				printf("Chon lai muc do: \n");
+				printf("\n\nChon lai muc do: \n");
 		} while (chondokho < 49 || chondokho > 51);
 		system("cls");
 		if (chondokho == 49)
