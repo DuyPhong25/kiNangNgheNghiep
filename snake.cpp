@@ -129,18 +129,18 @@ int DieuKhien(int n, int x, int y) //ham dieu khien ran khi bat dau choi
 		ktDoAnV = 1;
 	}
 	xuatDiem();
-	if (Check() == 1)
-		if (_kbhit())
+	if (Check() == 1) // neu ran con song
+		if (_kbhit()) //ham bat phim (co phim duoc nhap tra ve 1, else tra ve 0)
 		{
-			int a = _getch();
-			if (n == 4 || n == 2)
+			int a = _getch(); // ham lay ma ASCII nhap tu ban phim
+			if (n == 4 || n == 2) // kt di ngang
 			{
 				if (a == 115) // 115 == s
 					DiXuong(x, y);
 				if (a == 119) // 119 == w
 					DiLen(x, y);
 			}
-			if (n == 1 || n == 3)
+			if (n == 1 || n == 3) // kt di doc
 			{
 				if (a == 100) // 100 == d
 					DiNgangT(x, y);
@@ -153,9 +153,9 @@ int DieuKhien(int n, int x, int y) //ham dieu khien ran khi bat dau choi
 				printf("                 ");
 				while (1)
 				{
-					if (_kbhit())
+					if (_kbhit()) //ham bat phim (co phim duoc nhap tra ve 1, else tra ve 0)
 					{
-						int p = _getch();
+						int p = _getch(); // ham lay ma ASCII nhap tu ban phim
 						if (p == 112) // 112 == p
 							break;
 						if (p == 27) // 27 == ESC
@@ -178,7 +178,7 @@ int DieuKhien(int n, int x, int y) //ham dieu khien ran khi bat dau choi
 			// w = 119		== 3
 			// d = 100		== 4
 		}
-	if (Check() == 0)
+	if (Check() == 0) // neu ran died
 	{
 		system("cls");
 		SetTeColor(12); // 12 == mau do sang
@@ -189,7 +189,7 @@ int DieuKhien(int n, int x, int y) //ham dieu khien ran khi bat dau choi
 		printf("\tBAM ENTER DE CHOI LAI\n\tBAM ESC DE THOAT LUON");
 		while (1)
 		{
-			tmp = _getch();
+			tmp = _getch(); // ham lay ma ASCII nhap tu ban phim
 			if (tmp == 13) // 13 == enter
 			{
 				reset();
@@ -213,7 +213,7 @@ void DiNgangT(int x, int y) //ham dieu khien ran di chuyen ngang ben phai
 	{
 		Sleep(doKho);
 		gotoxy(++x, y);
-		printf("%c", 1);
+		printf("%c", 1); // 1 == hinh mat cuoi
 		if (x == DoAn.x && y == DoAn.y)
 		{
 			DiemCT++;
@@ -428,7 +428,7 @@ void intro() //ham xuat thong tin
 	char enter;
 	while (1)
 	{
-		enter = _getch(); //dung mang hinh doi nhap bien enter
+		enter = _getch(); /// ham lay ma ASCII nhap tu ban phim
 		if (enter == 13) // 13 == enter
 			break;
 	}
@@ -492,7 +492,7 @@ void menu() //ham tao menu dieu kien, chon toc do, huong dan cach choi
 		char phim;
 		if (_kbhit())
 		{
-			phim = _getch();
+			phim = _getch(); // ham lay ma ASCII nhap tu ban phim
 			if (phim == 13) // 13 == enter
 				break;
 			if (phim == 80) // 80 == P == di xuong
@@ -528,7 +528,7 @@ void menu() //ham tao menu dieu kien, chon toc do, huong dan cach choi
 
 		do
 		{
-			chondokho = _getch();
+			chondokho = _getch(); // ham lay ma ASCII nhap tu ban phim
 			if (chondokho < 49 || chondokho > 51)
 				printf("\n\nChon lai muc do: \n");
 		} while (chondokho < 49 || chondokho > 51);
@@ -570,7 +570,7 @@ void menu() //ham tao menu dieu kien, chon toc do, huong dan cach choi
 		char enter;
 		while (1)
 		{
-			enter = _getch();
+			enter = _getch(); // ham lay ma ASCII nhap tu ban phim
 			if (enter == 13) // 13 == enter
 				break;
 		}
