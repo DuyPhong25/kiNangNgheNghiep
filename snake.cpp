@@ -59,9 +59,9 @@ void ThongTin() // ham tao thong tin
 	printf("\t\t\tSS004.K22.7\n");
 	SetTeColor(14); // 14 == mau vang
 	printf("\t\t\tVo Duy Phong - 19522016\n");
-	printf("\t\t\tNguyen Thu Thu Hang - 19521469\n");
-	printf("\t\t\tNguyen Thi Cam Thuy - 19520294\n");
-	printf("\t\t\tNguon: Vforum.vn\n");
+	printf("\t\t\tNguyen Thu Hang - 19521469\n");
+	printf("\t\t\tNguyen Thi Cam Thuy - 19520294\n\n");
+	printf("\t\t\tNguon: Vforum.vn - taplamhacker\n");
 	printf("\n\n");
 }
 
