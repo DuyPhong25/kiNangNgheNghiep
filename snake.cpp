@@ -655,7 +655,6 @@ void reset() // ham reset lai cac thong so ban dau
 {
 	demV = 90;
 	DoDai = 2;
-	CheckAnV = 0;
 	CheckV = 0;
 	ktDoAnV = 0;
 	DiemCT = 0;
