@@ -3,7 +3,6 @@
 #include<conio.h>
 #include<string.h>
 #include<time.h>
-
 // Dinh nghia cau truc toa do
 typedef struct
 {
@@ -11,7 +10,7 @@ typedef struct
 }ToaDo;
 
 ToaDo Head, Tail, Body;
-ToaDo TD[401];
+ToaDo TD[401]; // chieu dai toi da cua ran
 int demTD = 0, demV = 90;
 int DoDai = 2, CheckAnV = 0, CheckV = 0, ktDoAnV = 0;
 int DiemCT = 0, DiemOLD = 0, DiemV = 0;
@@ -37,11 +36,11 @@ void gotoxy(int x, int y) // ham di chuyen con tro den cot thu x va hang thu y
 	static HANDLE  h = NULL;
 	if (!h)
 		h = GetStdHandle(STD_OUTPUT_HANDLE);
-	COORD c = { x, y };
+	COORD c = { x,y };
 	SetConsoleCursorPosition(h, c);
 }
 
-void SetTeColor(WORD color) //ham tao mau chu
+void SetTeColor(WORD color) // ham tao mau chu
 {
 	HANDLE hConsoleOutput;
 	hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -53,12 +52,12 @@ void SetTeColor(WORD color) //ham tao mau chu
 	SetConsoleTextAttribute(hConsoleOutput, wAttributes);
 }
 
-void ThongTin() //ham tao thong tin
+void ThongTin() // ham tao thong tin
 {
-	SetTeColor(13); 
+	SetTeColor(13); // 13 == mau hong canh sen
 	gotoxy(15, 2);
 	printf("\t\t\tSS004.K22.7\n");
-	SetTeColor(14);
+	SetTeColor(14); // 14 == mau vang
 	printf("\t\t\tVo Duy Phong - 19522016\n");
 	printf("\t\t\tNguyen Thu Thu Hang - 19521469\n");
 	printf("\t\t\tNguyen Thi Cam Thuy - 19520294\n");
@@ -68,22 +67,22 @@ void ThongTin() //ham tao thong tin
 
 void reset(); // ham reset lai cac thong so ban dau
 void intro(); // ham xuat thong tin
-void menu();  //ham tao ban dieu khien, chon do kho va huong dan choi
-void menuchon(int chon, int choncu); //ham xu ly trong bang dieu kien
-void xuatDiem();  //ham xuat diem khi dang choi
-int DieuKhien(int n, int x, int y); //ham dieu khien ran khi bat dau choi
-void DiNgangT(int x, int y); //ham dieu khien ran di chuyen ngang ben phai
-void DiLen(int x, int y); //ham dieu khien ran di chuyen len
-void DiXuong(int x, int y); //ham dieu khien ran di chuyen xuong
-void DiNgangL(int x, int y); ////ham dieu khien ran di chuyen ngang ben trai
-void xoaTail(ToaDo cuoi); //ham xoa toa do cuoi
-ToaDo ViTriDau();
-int Check(); //ham kiem tra khi nao ran died
-void inDoAn(ToaDo DoAn); //ham in do an
-void XoaDoAn(ToaDo DoAn); //ham xoa do an khi ran da an
+void menu();  // ham tao ban dieu khien, chon do kho va huong dan choi
+void menuchon(int chon, int choncu); // ham xu ly trong bang dieu kien
+void xuatDiem();  // ham xuat diem khi dang choi
+int DieuKhien(int n, int x, int y); // ham dieu khien ran khi bat dau choi
+void DiNgangT(int x, int y); // ham dieu khien ran di chuyen ngang ben phai
+void DiLen(int x, int y); // ham dieu khien ran di chuyen len
+void DiXuong(int x, int y); // ham dieu khien ran di chuyen xuong
+void DiNgangL(int x, int y); // ham dieu khien ran di chuyen ngang ben trai
+void xoaTail(ToaDo cuoi); // ham xoa toa do cuoi
+ToaDo ViTriDau(); 
+int Check(); // ham kiem tra khi nao ran died
+void inDoAn(ToaDo DoAn); // ham in do an
+void XoaDoAn(ToaDo DoAn); // ham xoa do an khi ran da an
 void TaoDoAn(); // ham tao do an (random)
-void TaoDoAnV(); //ham tao do an lon (sau khi ran an 5 do an nho)
-void Khung(); //tao giao dien game
+void TaoDoAnV(); // ham tao do an lon (sau khi ran an 5 do an nho)
+void Khung(); // tao giao dien game
 
 int main()
 {
@@ -104,7 +103,7 @@ int main()
 
 int DieuKhien(int n, int x, int y) //ham dieu khien ran khi bat dau choi
 {
-	SetTeColor(2);
+	SetTeColor(2); // 2 == mau xanh la cay
 	if (DiemCT > DiemOLD)
 	{
 		TaoDoAn();
@@ -136,19 +135,19 @@ int DieuKhien(int n, int x, int y) //ham dieu khien ran khi bat dau choi
 			int a = _getch();
 			if (n == 4 || n == 2)
 			{
-				if (a == 115)
+				if (a == 115) // 115 == s
 					DiXuong(x, y);
-				if (a == 119)
+				if (a == 119) // 119 == w
 					DiLen(x, y);
 			}
 			if (n == 1 || n == 3)
 			{
-				if (a == 100)
+				if (a == 100) // 100 == d
 					DiNgangT(x, y);
-				if (a == 97)
+				if (a == 97) // 97 == a
 					DiNgangL(x, y);
 			}
-			if (a == 112)
+			if (a == 112) // 112 == p
 			{
 				gotoxy(1, 21);
 				printf("                 ");
@@ -157,9 +156,9 @@ int DieuKhien(int n, int x, int y) //ham dieu khien ran khi bat dau choi
 					if (_kbhit())
 					{
 						int p = _getch();
-						if (p == 112)
+						if (p == 112) // 112 == p
 							break;
-						if (p == 27)
+						if (p == 27) // 27 == ESC
 						{
 							reset();
 							main();
@@ -174,7 +173,7 @@ int DieuKhien(int n, int x, int y) //ham dieu khien ran khi bat dau choi
 				}
 
 			}
-			// s = 115    	== 1
+			// s = 115    		== 1
 			// a = 97		== 2
 			// w = 119		== 3
 			// d = 100		== 4
@@ -182,21 +181,21 @@ int DieuKhien(int n, int x, int y) //ham dieu khien ran khi bat dau choi
 	if (Check() == 0)
 	{
 		system("cls");
-		SetTeColor(12);
+		SetTeColor(12); // 12 == mau do sang
 		printf("\t\tYOU DIED\n");
 		printf("\tDiem cua ban la : %d \n\n", DiemCT + DiemV);
 		char tmp;
-		SetTeColor(15);
+		SetTeColor(15); // 15 == mau trang
 		printf("\tBAM ENTER DE CHOI LAI\n\tBAM ESC DE THOAT LUON");
 		while (1)
 		{
 			tmp = _getch();
-			if (tmp == 13)
+			if (tmp == 13) // 13 == enter
 			{
 				reset();
 				main();
 			}
-			if (tmp == 27)
+			if (tmp == 27) // 27 == ESC
 			{
 				printf("\n\t\t\tTam biet va hen gap lai!\n\n\n");
 				printf("Thoat trong 3s");
@@ -338,13 +337,13 @@ ToaDo ViTriDau() // ham tao vi tri ban dau cho ran
 	Dau.x = wherex();
 	Dau.y = wherey();
 	return Dau;
-}
+} 
 void TaoDoAn() // ham random tao do an
 {
 	int check = 0;
 	do
 	{
-		DoAn.x = 2 + rand() % 77;
+		DoAn.x = 2 + rand() % 76;
 		DoAn.y = 2 + rand() % 18;
 		for (int i = 0; i < DoDai; i++)
 		{
@@ -356,7 +355,7 @@ void TaoDoAn() // ham random tao do an
 		}
 		if (check == 0)
 		{
-			SetTeColor(14);
+			SetTeColor(14); // 14 == mau vang
 			inDoAn(DoAn);
 		}
 	} while (check == 1);
@@ -366,7 +365,7 @@ void TaoDoAnV() //ham tao do an
 	int check = 0;
 	do
 	{
-		DoAnV.x = 2 + rand() % 77;
+		DoAnV.x = 2 + rand() % 76;
 		DoAnV.y = 2 + rand() % 18;
 		if (DoAnV.x == DoAn.x && DoAnV.y == DoAn.y)
 		{
@@ -383,7 +382,7 @@ void TaoDoAnV() //ham tao do an
 		}
 		if (check == 0)
 		{
-			SetTeColor(13);
+			SetTeColor(13); // mau hong canh sen
 			inDoAn(DoAnV);
 		}
 	} while (check == 1);
@@ -412,7 +411,7 @@ void xoaTail(ToaDo cuoi) //ham xoa toa do cuoi khi ran di chuyen
 }
 int Check() // ham kiem tra ran chet (khi ran cham vao tuong va khi ran cham vao ban than)
 {
-	if (Head.x == 0 || Head.x == 79 || Head.y == 0 || Head.y == 20)
+	if (Head.x == 0 || Head.x == 78 || Head.y == 0 || Head.y == 20)
 		return 0;
 	for (int i = 0; i < DoDai - 1; i++)
 		if (TD[i].x == Head.x && TD[i].y == Head.y)
@@ -422,30 +421,30 @@ int Check() // ham kiem tra ran chet (khi ran cham vao tuong va khi ran cham vao
 void intro() //ham xuat thong tin
 {
 	system("cls");
-	SetTeColor(12);
+	SetTeColor(12); // 12 == mau do sang
 	ThongTin();
-	SetTeColor(15);
+	SetTeColor(15); // 15 == mau trang
 	printf("Bam enter de qua lai luc nay");
 	char enter;
 	while (1)
 	{
-		enter = _getch();
-		if (enter == 13)
+		enter = _getch(); //dung mang hinh doi nhap bien enter
+		if (enter == 13) // 13 == enter
 			break;
 	}
 	menu();
 }
 void Khung() //ham tao giao dien khi bat dau choi game
 {
-	for (int i = 0; i < 80; i++)
+	for (int i = 0; i < 79; i++)
 	{
 		if (i == 78)
-			printf("%c", 3);
+			printf("%c", 3); // 3 == ki tu trai tim 
 		if (i < 78)
-			printf("%c", 31);
+			printf("%c", 31); // 31 == ki tu mui ten xuong
 	}
-	printf("\n%c                                                                             %c", 16, 17);
-	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17); // 16 == mui ten ben phai
+	printf("\n%c                                                                             %c", 16, 17); // 17 == mui ten ben trai
 	printf("\n%c                                                                             %c", 16, 17);
 	printf("\n%c                                                                             %c", 16, 17);
 	printf("\n%c                                                                             %c", 16, 17);
@@ -463,19 +462,19 @@ void Khung() //ham tao giao dien khi bat dau choi game
 	printf("\n%c                                                                             %c", 16, 17);
 	printf("\n%c                                                                             %c", 16, 17);
 	printf("\n%c                                                                             %c\n", 16, 17);
-	for (int i = 0; i < 80; i++)
+	for (int i = 0; i < 79; i++) 
 	{
-		if (i == 78)
-			printf("%c", 3);
+		if (i == 78) 
+			printf("%c", 3); // 3 == ki tu trai tim
 		if (i < 78)
-			printf("%c", 30);
+			printf("%c", 30); // 30 == ki tu mui ten len
 	}
 }
 void menu() //ham tao menu dieu kien, chon toc do, huong dan cach choi
 {
 	system("cls");
 	int chon = 1, choncu = 0;
-	SetTeColor(11);
+	SetTeColor(11); // 11 == mau xanh lo
 	gotoxy(23, 2);
 	printf(">>>>>GAME RAN SAN MOI<<<<<\n");
 	SetTeColor(10);
@@ -494,9 +493,9 @@ void menu() //ham tao menu dieu kien, chon toc do, huong dan cach choi
 		if (_kbhit())
 		{
 			phim = _getch();
-			if (phim == 13)
+			if (phim == 13) // 13 == enter
 				break;
-			if (phim == 80)
+			if (phim == 80) // 80 == P == di xuong
 			{
 				if (chon < 4)
 				{
@@ -505,7 +504,7 @@ void menu() //ham tao menu dieu kien, chon toc do, huong dan cach choi
 					menuchon(chon, choncu);
 				}
 			}
-			if (phim == 72)
+			if (phim == 72) // 72 == H == di len
 			{
 				if (chon > 1)
 				{
@@ -531,20 +530,20 @@ void menu() //ham tao menu dieu kien, chon toc do, huong dan cach choi
 		{
 			chondokho = _getch();
 			if (chondokho < 49 || chondokho > 51)
-				printf("Chon lai muc do: \n");
+				printf("\n\nChon lai muc do: \n");
 		} while (chondokho < 49 || chondokho > 51);
 		system("cls");
-		if (chondokho == 49)
+		if (chondokho == 49) // 49 == 1
 		{
 			doKho = 300;
 			printf("Da chon muc do DE\n");
 		}
-		if (chondokho == 50)
+		if (chondokho == 50) // 50 == 2
 		{
 			doKho = 200;
 			printf("Da chon muc do BINH THUONG\n");
 		}
-		if (chondokho == 51)
+		if (chondokho == 51) // 51 == 3
 		{
 			doKho = 100;
 			printf("Da chon muc do KHO\n");
@@ -554,9 +553,9 @@ void menu() //ham tao menu dieu kien, chon toc do, huong dan cach choi
 		while (1)
 		{
 			enter = _getch();
-			if (enter == 27)
+			if (enter == 27) // 27 == ESC
 				break;
-			if (enter == 13)
+			if (enter == 13) // 13 == enter
 				return;
 		}
 		menu();
@@ -572,7 +571,7 @@ void menu() //ham tao menu dieu kien, chon toc do, huong dan cach choi
 		while (1)
 		{
 			enter = _getch();
-			if (enter == 13)
+			if (enter == 13) // 13 == enter
 				break;
 		}
 		menu();
