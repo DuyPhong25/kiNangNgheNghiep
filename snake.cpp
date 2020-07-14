@@ -3,6 +3,7 @@
 #include<conio.h>
 #include<string.h>
 #include<time.h>
+
 // Dinh nghia cau truc toa do
 typedef struct
 {
@@ -15,7 +16,7 @@ int demTD = 0, demV = 90;
 int DoDai = 2, CheckAnV = 0, CheckV = 0, ktDoAnV = 0;
 int DiemCT = 0, DiemOLD = 0, DiemV = 0;
 ToaDo DoAn, DoAnV;
-int doKho = 100;
+int doKho = 200;
 
 int wherex() // ham tra ve vi tri cua cot hien hanh
 {
@@ -36,7 +37,7 @@ void gotoxy(int x, int y) // ham di chuyen con tro den cot thu x va hang thu y
 	static HANDLE  h = NULL;
 	if (!h)
 		h = GetStdHandle(STD_OUTPUT_HANDLE);
-	COORD c = { x,y };
+	COORD c = { x, y };
 	SetConsoleCursorPosition(h, c);
 }
 
@@ -54,10 +55,10 @@ void SetTeColor(WORD color) //ham tao mau chu
 
 void ThongTin() //ham tao thong tin
 {
-	SetTeColor(13);
+	SetTeColor(13); 
 	gotoxy(15, 2);
-	SetTeColor(14);
 	printf("\t\t\tSS004.K22.7\n");
+	SetTeColor(14);
 	printf("\t\t\tVo Duy Phong - 19522016\n");
 	printf("\t\t\tNguyen Thu Thu Hang - 19521469\n");
 	printf("\t\t\tNguyen Thi Cam Thuy - 19520294\n");
@@ -76,13 +77,14 @@ void DiLen(int x, int y); //ham dieu khien ran di chuyen len
 void DiXuong(int x, int y); //ham dieu khien ran di chuyen xuong
 void DiNgangL(int x, int y); ////ham dieu khien ran di chuyen ngang ben trai
 void xoaTail(ToaDo cuoi); //ham xoa toa do cuoi
-ToaDo ViTriDau(); 
+ToaDo ViTriDau();
 int Check(); //ham kiem tra khi nao ran died
 void inDoAn(ToaDo DoAn); //ham in do an
 void XoaDoAn(ToaDo DoAn); //ham xoa do an khi ran da an
 void TaoDoAn(); // ham tao do an (random)
 void TaoDoAnV(); //ham tao do an lon (sau khi ran an 5 do an nho)
 void Khung(); //tao giao dien game
+
 int main()
 {
 	menu();
@@ -99,6 +101,7 @@ int main()
 	DiNgangT(Head.x, Head.y);
 
 }
+
 int DieuKhien(int n, int x, int y) //ham dieu khien ran khi bat dau choi
 {
 	SetTeColor(2);
@@ -171,7 +174,7 @@ int DieuKhien(int n, int x, int y) //ham dieu khien ran khi bat dau choi
 				}
 
 			}
-			// s = 115    		== 1
+			// s = 115    	== 1
 			// a = 97		== 2
 			// w = 119		== 3
 			// d = 100		== 4
@@ -335,7 +338,7 @@ ToaDo ViTriDau() // ham tao vi tri ban dau cho ran
 	Dau.x = wherex();
 	Dau.y = wherey();
 	return Dau;
-} 
+}
 void TaoDoAn() // ham random tao do an
 {
 	int check = 0;
@@ -436,35 +439,35 @@ void Khung() //ham tao giao dien khi bat dau choi game
 {
 	for (int i = 0; i < 80; i++)
 	{
-		if (i == 79)
+		if (i == 78)
 			printf("%c", 3);
-		if (i < 79)
+		if (i < 78)
 			printf("%c", 31);
 	}
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
-	printf("%c                                                                              %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c", 16, 17);
+	printf("\n%c                                                                             %c\n", 16, 17);
 	for (int i = 0; i < 80; i++)
 	{
-		if (i == 79)
+		if (i == 78)
 			printf("%c", 3);
-		if (i < 79)
+		if (i < 78)
 			printf("%c", 30);
 	}
 }
@@ -528,22 +531,22 @@ void menu() //ham tao menu dieu kien, chon toc do, huong dan cach choi
 		{
 			chondokho = _getch();
 			if (chondokho < 49 || chondokho > 51)
-				printf("\n\nChon lai muc do: \n");
+				printf("Chon lai muc do: \n");
 		} while (chondokho < 49 || chondokho > 51);
 		system("cls");
 		if (chondokho == 49)
 		{
-			doKho = 150;
+			doKho = 300;
 			printf("Da chon muc do DE\n");
 		}
 		if (chondokho == 50)
 		{
-			doKho = 90;
+			doKho = 200;
 			printf("Da chon muc do BINH THUONG\n");
 		}
 		if (chondokho == 51)
 		{
-			doKho = 40;
+			doKho = 100;
 			printf("Da chon muc do KHO\n");
 		}
 		printf("Bam enter de choi game\nBam ESC de quay lai menu\n");
@@ -664,5 +667,5 @@ void reset() // ham reset lai cac thong so ban dau
 	DiemCT = 0;
 	DiemOLD = 0;
 	DiemV = 0;
-	doKho = 100;
+	doKho = 200;
 }
