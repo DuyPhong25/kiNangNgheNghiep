@@ -11,8 +11,8 @@ typedef struct
 
 ToaDo Head, Tail, Body;
 ToaDo TD[401]; // chieu dai toi da cua ran
-int demTD = 0, demV = 90;
-int DoDai = 2, CheckAnV = 0, CheckV = 0, ktDoAnV = 0;
+int demV = 90;
+int DoDai = 2, CheckV = 0, ktDoAnV = 0;
 int DiemCT = 0, DiemOLD = 0, DiemV = 0;
 ToaDo DoAn, DoAnV;
 int doKho = 200;
@@ -133,14 +133,14 @@ int DieuKhien(int n, int x, int y) //ham dieu khien ran khi bat dau choi
 		if (_kbhit()) //ham bat phim (co phim duoc nhap tra ve 1, else tra ve 0)
 		{
 			int a = _getch(); // ham lay ma ASCII nhap tu ban phim
-			if (n == 4 || n == 2) // kt di ngang
+			if (n == 2) // kt di ngang
 			{
 				if (a == 115) // 115 == s
 					DiXuong(x, y);
 				if (a == 119) // 119 == w
 					DiLen(x, y);
 			}
-			if (n == 1 || n == 3) // kt di doc
+			if (n == 1) // kt di doc
 			{
 				if (a == 100) // 100 == d
 					DiNgangT(x, y);
@@ -223,7 +223,6 @@ void DiNgangT(int x, int y) //ham dieu khien ran di chuyen ngang ben phai
 		}
 		if (x == DoAnV.x && y == DoAnV.y)
 		{
-			CheckAnV = 1;
 			CheckV = 0;
 			DiemV += demV;
 			ktDoAnV = 1;
@@ -235,7 +234,7 @@ void DiNgangT(int x, int y) //ham dieu khien ran di chuyen ngang ben phai
 		gotoxy(x, y);
 		Head = ViTriDau();
 		TD[DoDai - 1] = Head;
-		DieuKhien(4, x, y);
+		DieuKhien(2, x, y);
 	}
 }
 void DiNgangL(int x, int y) //ham dieu khien ran di chuyen ngang ben trai
@@ -254,7 +253,6 @@ void DiNgangL(int x, int y) //ham dieu khien ran di chuyen ngang ben trai
 		}
 		if (x == DoAnV.x && y == DoAnV.y)
 		{
-			CheckAnV = 1;
 			CheckV = 0;
 			DiemV += demV;
 			ktDoAnV = 1;
@@ -266,7 +264,7 @@ void DiNgangL(int x, int y) //ham dieu khien ran di chuyen ngang ben trai
 		gotoxy(x, y);
 		Head = ViTriDau();
 		TD[DoDai - 1] = Head;
-		DieuKhien(4, x, y);
+		DieuKhien(2, x, y);
 	}
 }
 void DiLen(int x, int y) //ham dieu khien ran di chuyen len
@@ -285,7 +283,6 @@ void DiLen(int x, int y) //ham dieu khien ran di chuyen len
 		}
 		if (x == DoAnV.x && y == DoAnV.y)
 		{
-			CheckAnV = 1;
 			CheckV = 0;
 			DiemV += demV;
 			ktDoAnV = 1;
@@ -297,7 +294,7 @@ void DiLen(int x, int y) //ham dieu khien ran di chuyen len
 		gotoxy(x, y);
 		Head = ViTriDau();
 		TD[DoDai - 1] = Head;
-		DieuKhien(3, x, y);
+		DieuKhien(1, x, y);
 	}
 }
 void DiXuong(int x, int y) //ham dieu khien ran di xuong
@@ -316,7 +313,6 @@ void DiXuong(int x, int y) //ham dieu khien ran di xuong
 		}
 		if (x == DoAnV.x && y == DoAnV.y)
 		{
-			CheckAnV = 1;
 			CheckV = 0;
 			DiemV += demV;
 			ktDoAnV = 1;
@@ -328,7 +324,7 @@ void DiXuong(int x, int y) //ham dieu khien ran di xuong
 		gotoxy(x, y);
 		Head = ViTriDau();
 		TD[DoDai - 1] = Head;
-		DieuKhien(3, x, y);
+		DieuKhien(1, x, y);
 	}
 }
 ToaDo ViTriDau() // ham tao vi tri ban dau cho ran
@@ -657,7 +653,6 @@ void menuchon(int chon, int choncu) //ham xu ly trong ham dieu khien
 }
 void reset() // ham reset lai cac thong so ban dau
 {
-	demTD = 0;
 	demV = 90;
 	DoDai = 2;
 	CheckAnV = 0;
